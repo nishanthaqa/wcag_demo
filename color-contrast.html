@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WCAG Color Contrast Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      background: #f4f4f4;
+    }
+
+    h1 {
+      margin-bottom: 1rem;
+    }
+
+    .combo {
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      color: white;
+    }
+
+    .label {
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+
+    .rating {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .pass {
+      color: green;
+    }
+
+    .fail {
+      color: red;
+    }
+
+    .contrast-box {
+      padding: 1rem;
+      border: 1px solid #ccc;
+      margin-bottom: 1rem;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>WCAG Color Contrast Demo</h1>
+  <p>This page demonstrates different background/text color combinations with their WCAG contrast compliance.</p>
+
+  <div class="contrast-box" style="background-color: #000; color: #fff;">
+    <div class="label">White on Black</div>
+    <div class="rating pass">✅ Passes WCAG AA & AAA</div>
+  </div>
+
+  <div class="contrast-box" style="background-color: #666; color: #fff;">
+    <div class="label">White on Dark Gray</div>
+    <div class="rating pass">✅ Passes WCAG AA (Large Text), ❌ Fails AAA</div>
+  </div>
+
+  <div class="contrast-box" style="background-color: #ffcc00; color: #000;">
+    <div class="label">Black on Yellow</div>
+    <div class="rating pass">✅ Passes WCAG AA & AAA</div>
+  </div>
+
+  <div class="contrast-box" style="background-color: #c00; color: #fff;">
+    <div class="label">White on Red</div>
+    <div class="rating pass">✅ Passes WCAG AA (Large Text), ❌ Fails AAA</div>
+  </div>
+
+  <div class="contrast-box" style="background-color: #0099cc; color: #fff;">
+    <div class="label">White on Blue</div>
+    <div class="rating fail">❌ Fails AA & AAA</div>
+  </div>
+
+  <div class="contrast-box" style="background-color: #eee; color: #999;">
+    <div class="label">Gray on Light Gray</div>
+    <div class="rating fail">❌ Fails All WCAG Levels</div>
+  </div>
+
+</body>
+</html>

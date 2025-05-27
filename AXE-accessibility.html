@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Interactive Accessibility Test Page</title>
+  <style>
+    .low-contrast {
+      color: #ccc;
+      background-color: white;
+    }
+    .hidden {
+      display: none;
+    }
+    .modal {
+      position: fixed;
+      top: 30%;
+      left: 30%;
+      width: 40%;
+      background: white;
+      border: 1px solid black;
+      padding: 1em;
+      box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+    }
+    .overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Showcase: Running Accessibility Audits Using axe-core</h1>
+  <h3>This is a subheading (missing h2)</h3>
+
+  <img src="axe.png">
+  <p class="low-contrast">This low-contrast text is hard to read.</p>
+
+  <form id="subscribeForm">
+    <input type="text" name="email" placeholder="Email address"><br><br>
+    <input type="submit" value="Subscribe">
+  </form>
+
+  <a href="next.html">Click here</a>
+
+  <div role="button" tabindex="0" onclick="alert('Submitted!')">This is a custom button</div>
+
+  <hr>
+
+  <button onclick="toggleContent()">Toggle Extra Info</button>
+  <div id="extraInfo" class="hidden">
+    <p>This is some hidden content revealed by a button.</p>
+  </div>
+
+  <br><br>
+  <button onclick="openModal()">Open Modal</button>
+
+  <div id="modalOverlay" class="overlay hidden" onclick="closeModal()"></div>
+  <div id="modal" class="modal hidden">
+    <p>This is a modal window. It can be closed by clicking outside.</p>
+    <button onclick="closeModal()">Close</button>
+  </div>
+
+  <script>
+    function toggleContent() {
+      const info = document.getElementById('extraInfo');
+      info.classList.toggle('hidden');
+    }
+
+    function openModal() {
+      document.getElementById('modal').classList.remove('hidden');
+      document.getElementById('modalOverlay').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('modal').classList.add('hidden');
+      document.getElementById('modalOverlay').classList.add('hidden');
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WCAG Zoom Accessibility Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    h1, h2 {
+      color: #2c3e50;
+    }
+
+    .card {
+      border: 1px solid #ddd;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      background-color: #f9f9f9;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    input, textarea, button {
+      width: 100%;
+      padding: 0.5rem;
+      font-size: 1rem;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      border: none;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .note {
+      font-size: 0.9rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>WCAG Zoom Test Page</h1>
+  <p>
+    This page is designed to test how well the layout, text, and interactive elements respond to browser zooming (e.g., up to 200%).
+    Try using <kbd>Ctrl</kbd> + <kbd>+</kbd> (or <kbd>Cmd</kbd> + <kbd>+</kbd> on Mac) to zoom in.
+  </p>
+
+  <div class="card">
+    <h2>Form Example</h2>
+    <form>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Enter your name" />
+      </div>
+
+      <div class="form-group">
+        <label for="feedback">Feedback</label>
+        <textarea id="feedback" rows="4" placeholder="Enter your feedback here..."></textarea>
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <div class="card">
+    <h2>Layout Section</h2>
+    <p>
+      This section contains regular content with a responsive layout.
+      As you zoom in, this content should remain readable and stay within the visible browser window without requiring horizontal scrolling.
+    </p>
+    <p class="note">
+      Tip: WCAG 2.1 Success Criterion 1.4.4 requires support for text scaling up to 200% without loss of content or functionality.
+    </p>
+  </div>
+
+</body>
+</html>
