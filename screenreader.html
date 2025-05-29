@@ -6,9 +6,82 @@
   <title>WCAG Screen Reader Demo</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.6;
+      background-color: #f9f9f9;
+      color: #333;
       padding: 2rem;
+    }
+
+    a:focus, button:focus, input:focus {
+      outline: 3px solid #005a9c;
+      outline-offset: 2px;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      gap: 1rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #005a9c;
+      font-weight: bold;
+    }
+
+    nav a:hover, nav a:focus {
+      text-decoration: underline;
+    }
+
+    h1, h2, h3 {
+      color: #2c3e50;
+    }
+
+    form {
+      background-color: #ffffff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      max-width: 400px;
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      margin-top: 1.5rem;
+      padding: 0.5rem 1rem;
+      background-color: #0078d4;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    button:hover, button:focus {
+      background-color: #005a9c;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-top: 0.5rem;
     }
 
     .sr-only {
@@ -23,50 +96,76 @@
       border: 0;
     }
 
-    nav, main, footer {
-      margin-bottom: 2rem;
+    .card {
+      background-color: #fff;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      margin-top: 1rem;
+    }
+
+    /* Skip link styles */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: #005a9c;
+      color: white;
+      padding: 8px 16px;
+      z-index: 100;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 0 0 4px 4px;
+    }
+
+    .skip-link:focus {
+      top: 0;
+      outline: none;
     }
   </style>
 </head>
 <body>
 
-  <!-- Screen reader only heading -->
+ 
+
   <h1 class="sr-only">Accessible Demo Page for Screen Readers</h1>
 
-  <!-- Navigation landmark with aria-label -->
-  <nav aria-label="Main Navigation">
+  <nav aria-label="Main Navigation" tabindex="0">
     <ul>
-      <li><a href="#main">Skip to main content</a></li>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="https://nishanthaqa.github.io/wcag_demo/">Skip to main content</a></li>
     </ul>
   </nav>
 
-  <!-- Main content landmark -->
-  <main id="main">
+  <main id="main" tabindex="0">
     <h2>Demonstration: Navigating with the NVDA Screen Reader</h2>
     <p>This page demonstrates best practices for screen reader accessibility based on WCAG guidelines.</p>
 
-    <h3>Image with Alt Text</h3>
-    <img src="nvda.png" alt="NVDA logo image with purple background">
+    <div class="card">
+      <h3>Image with Alt Text</h3>
+      <img src="nvda.png" alt="NVDA logo image with purple background">
+    </div>
 
-    <h3>Form with Accessible Labels</h3>
-    <form aria-label="Contact Form">
-      <label for="name">Name:</label>
-      <input id="name" name="name" type="text" />
+    <div class="card">
+      <h3>Form with Accessible Labels</h3>
+      <form aria-label="Contact Form">
+        <label for="name">Name:</label>
+        <input id="name" name="name" type="text" />
 
-      <br><br>
+        <label for="email">Email:</label>
+        <input id="email" name="email" type="email" />
 
-      <label for="email">Email:</label>
-      <input id="email" name="email" type="email" />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
 
-      <br><br>
+    <div class="card">
+      <h3>Hidden Text for Screen Readers Only</h3>
+      <p>
+        <span class="sr-only">This text is only available to screen readers for additional context.</span>
+        Visible content here.
+      </p>
+    </div>
+  </main>
 
-      <button type="submit">Submit</button>
-    </form>
-
-    <h3>Hidden Text for Screen Readers Only</h3>
-    <p>
-      <span class="sr-only">This text is only available to screen readers for additional context.</span>
-      Visible content here.
+</body>
+</html>

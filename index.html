@@ -3,34 +3,81 @@
 <head>
   <meta charset="UTF-8">
   <title>Accessibility Navigation Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f7fb;
+      margin: 0;
       padding: 2em;
+      color: #333;
     }
-    nav a {
-      display: block;
-      margin: 0.5em 0;
-      font-size: 1.2em;
-      color: #0645AD;
+
+    h1 {
+      color: #2c3e50;
+      font-size: 2em;
+    }
+
+    p {
+      font-size: 1.1em;
+      margin-bottom: 1.5em;
+    }
+
+    nav {
+      display: grid;
+      gap: 1em;
+      max-width: 600px;
+    }
+
+    .nav-card {
+      background-color: #ffffff;
+      padding: 1.2em 1.5em;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s, background-color 0.2s;
+    }
+
+    .nav-card a {
       text-decoration: none;
+      color: #0645AD;
+      font-size: 1.1em;
+      font-weight: 600;
+      display: block;
     }
-    nav a:focus {
-      outline: 2px solid #000;
+
+    .nav-card:hover {
+      background-color: #e6f0ff;
+      transform: translateY(-2px);
+    }
+
+    .nav-card a:focus {
+      outline: 3px solid #005a9c;
+      outline-offset: 4px;
+      background-color: #dceeff;
     }
   </style>
 </head>
 <body>
 
   <h1>Accessibility Navigation Demo</h1>
-  <p>Use the links below to navigate between example pages:</p>
+  <p>Use the links below to explore various accessibility test pages:</p>
 
   <nav aria-label="Main navigation">
-    <a href="screenreader.html">Go to Page 1 - Screenreader demo</a>
-    <a href="color-contrast.html">Go to Page 2 - Color contrast demo</a>
-    <a href="color-blindness-demo.html">Go to Page 3 - Color blindness demo</a>
-    <a href="zoom-test.html">Go to Page 4 - Zoom demo</a>
-    <a href="AXE-accessibility.html">Go to Page 5 - AXE demo</a>
+    <div class="nav-card">
+      <a href="screenreader.html">Page 1 – Screen Reader Demo</a>
+    </div>
+    <div class="nav-card">
+      <a href="color-contrast.html">Page 2 – Color Contrast Demo</a>
+    </div>
+    <div class="nav-card">
+      <a href="color-blindness-demo.html">Page 3 – Color Blindness Demo</a>
+    </div>
+    <div class="nav-card">
+      <a href="zoom-test.html">Page 4 – Zoom Level Demo</a>
+    </div>
+    <div class="nav-card">
+      <a href="AXE-accessibility.html">Page 5 – AXE Accessibility Testing</a>
+    </div>
   </nav>
 
 </body>
