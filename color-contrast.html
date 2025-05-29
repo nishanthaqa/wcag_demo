@@ -112,17 +112,18 @@
     <div class="label">Links</div>
 
     <div class="box fail" style="background-color: #fff;">
-      ❌ Link color similar to body text:
+      ❌ Link is hard to distinguish (low contrast and no underline):
       <br />
-      <a href="#" style="color: #444;">Example Link</a> vs <span style="color: #333;">body text</span>
-      <div class="color-info">Link: #444 | Body Text: #333 | Background: #fff</div>
+      <a href="#" style="color: #888; text-decoration: none;">Example Link</a>
+      <span style="color: #777;"> (Surrounding text)</span>
+      <div class="color-info">Link: #888 | Background: #fff | Contrast ≈ 3.0:1</div>
     </div>
-
+  
     <div class="box pass" style="background-color: #fff;">
       ✅ Sufficient contrast and underlined:
       <br />
       <a href="#" style="color: #0645AD; text-decoration: underline;">Accessible Link</a>
-      <div class="color-info">Link: #0645AD | Background: #fff</div>
+      <div class="color-info">Link: #0645AD | Background: #fff | Contrast ≈ 7:1</div>
     </div>
   </div>
 
