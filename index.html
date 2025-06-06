@@ -5,35 +5,65 @@
   <title>Accessibility Navigation Demo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #f4f7fb;
       margin: 0;
-      padding: 2em;
       color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      text-align: center;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    header img {
+      width: 100%;
+      max-height: 250px;
+      object-fit: cover;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2em 1em;
     }
 
     h1 {
       color: #2c3e50;
-      font-size: 2em;
+      font-size: 2.2em;
+      margin-bottom: 0.5em;
     }
 
     p {
       font-size: 1.1em;
-      margin-bottom: 1.5em;
+      margin-bottom: 2em;
+      max-width: 700px;
+      text-align: center;
     }
 
     nav {
       display: grid;
-      gap: 1em;
+      gap: 1.2em;
       max-width: 600px;
+      width: 100%;
     }
 
     .nav-card {
       background-color: #ffffff;
       padding: 1.2em 1.5em;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
       transition: transform 0.2s, background-color 0.2s;
     }
 
@@ -47,7 +77,7 @@
 
     .nav-card:hover {
       background-color: #e6f0ff;
-      transform: translateY(-2px);
+      transform: translateY(-3px);
     }
 
     .nav-card a:focus {
@@ -55,30 +85,49 @@
       outline-offset: 4px;
       background-color: #dceeff;
     }
+
+    footer {
+      text-align: center;
+      background-color: #f0f0f0;
+      padding: 1em;
+      font-size: 0.9em;
+      color: #555;
+      border-top: 1px solid #ddd;
+    }
   </style>
 </head>
 <body>
 
-  <h1>Accessibility Navigation Demo</h1>
-  <p>Use the links below to explore various accessibility test pages:</p>
+  <header>
+    <img src="main.png" alt="Accessibility Banner">
+  </header>
 
-  <nav aria-label="Main navigation">
-    <div class="nav-card">
-      <a href="screenreader1.html">Page 1 – Screen Reader Demo</a>
-    </div>
-    <div class="nav-card">
-      <a href="color-contrast1.html">Page 2 – Color Contrast Demo</a>
-    </div>
-    <div class="nav-card">
-      <a href="color-blindness-demo1.html">Page 3 – Color Blindness Demo</a>
-    </div>
-    <div class="nav-card">
-      <a href="zoom-test.html">Page 4 – Zoom Level Demo</a>
-    </div>
-    <div class="nav-card">
-      <a href="AXE-accessibility1.html">Page 5 – AXE Accessibility Testing</a>
-    </div>
-  </nav>
+  <main>
+    <h1>Accessibility Navigation Demo</h1>
+    <p>Use the links below to explore various accessibility test pages and evaluate different aspects of accessible web design.</p>
+
+    <nav aria-label="Main navigation">
+      <div class="nav-card">
+        <a href="screenreader1.html">Page 1 – Screen Reader Demo</a>
+      </div>
+      <div class="nav-card">
+        <a href="color-contrast1.html">Page 2 – Color Contrast Demo</a>
+      </div>
+      <div class="nav-card">
+        <a href="color-blindness-demo1.html">Page 3 – Color Blindness Demo</a>
+      </div>
+      <div class="nav-card">
+        <a href="zoom-test.html">Page 4 – Zoom Level Demo</a>
+      </div>
+      <div class="nav-card">
+        <a href="AXE-accessibility1.html">Page 5 – AXE Accessibility Testing</a>
+      </div>
+    </nav>
+  </main>
+
+  <footer>
+    &copy; 2025 Accessibility Demo Hub. All rights reserved.
+  </footer>
 
 </body>
 </html>
