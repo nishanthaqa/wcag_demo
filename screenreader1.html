@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NVDA Accessibility Demo Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f8ff;
+      margin: 0;
+      padding: 0;
+    }
+    header, footer {
+      background: #0077cc;
+      color: white;
+      padding: 1em;
+      text-align: center;
+    }
+    nav {
+      background: #005fa3;
+      display: flex;
+      justify-content: center;
+      gap: 2em;
+      padding: 0.8em;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:focus {
+      outline: 3px solid yellow;
+    }
+    main {
+      padding: 2em;
+      max-width: 800px;
+      margin: auto;
+      background: #ffffff;
+    }
+    h1 {
+      color: #003366;
+    }
+    .hero-img {
+      width: 100%;
+      height: auto;
+      border: 3px solid #ccc;
+    }
+    .thumbnail-gallery {
+      display: flex;
+      gap: 1em;
+      margin-top: 1em;
+    }
+    .thumbnail-gallery img {
+      width: 250px;
+      height: 200px;
+      object-fit: cover;
+      border: 2px solid #888;
+      cursor: pointer;
+    }
+    .thumbnail-gallery img:focus {
+      outline: 3px solid orange;
+    }
+    form {
+      margin-top: 2em;
+      background: #e6f2ff;
+      padding: 1em;
+      border-radius: 8px;
+    }
+    label {
+      display: block;
+      margin-top: 1em;
+    }
+    input, select, button {
+      padding: 0.5em;
+      margin-top: 0.3em;
+      width: 100%;
+      border: 1px solid #aaa;
+      border-radius: 4px;
+    }
+    button {
+      background: #0077cc;
+      color: white;
+      margin-top: 1em;
+      cursor: pointer;
+    }
+    button:focus {
+      outline: 3px solid yellow;
+    }
+    footer {
+      margin-top: 2em;
+    }
+  </style>
+</head>
+<body>
+  <header role="banner">
+    <h1 tabindex="0">Welcome to the NVDA Screen Reader Demo</h1>
+  </header>
+
+  <nav role="navigation" aria-label="Main Navigation">
+    <a href="#about">About</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#form">Form</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <main>
+    <section id="about">
+      <h2>About This Page</h2>
+      <p>This page is designed to test screen reader navigation with NVDA. You can use the Tab key to move through elements and interact with forms using Focus Mode.</p>
+      <img src="keyboarduser.jpg" alt="Demo placeholder image of a hand pressing keys on a keyboard" class="hero-img" />
+    </section>
+
+    <section id="gallery">
+      <h2>Image Thumbnails</h2>
+      <p>Use Tab to navigate through these thumbnails. Each image has alt text.</p>
+      <div class="thumbnail-gallery">
+        <img src="blind.png" alt="Blind Person With Disability Using Digital Assistant" tabindex="0" />
+        <img src="deaf.jpg" alt="Deaf person at his workplace using a Video Relay Service to communicate via a Video Interpreter" tabindex="0" />
+        <img src="stephen-hawking.jpg" alt="Stephen Hawking delivering a lecture using assistive technologies" tabindex="0" />
+      </div>
+    </section>
+
+    <section id="form">
+      <h3>Interactive Form</h3>
+      <p>This section demonstrates Focus Mode. NVDA will switch to Focus Mode when interacting with inputs.</p>
+      <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" aria-required="true" />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" />
+
+        <label for="topic">Select Topic:</label>
+        <select id="topic" name="topic">
+          <option value="accessibility">Accessibility</option>
+          <option value="html">HTML</option>
+          <option value="testing">Testing</option>
+        </select>
+
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+    <section id="contact">
+      <h4>Contact Us</h4>
+      <p>Need help? Reach out via email or phone!</p>
+      <ul>
+        <li>Email: <a href="mailto:access@example.com">access@example.com</a></li>
+        <li>Phone: <a href="tel:+123456789">+1 (234) 567-89</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <p>&copy; 2025 Accessibility Demo. Built for NVDA screen reader testing.</p>
+  </footer>
+</body>
+</html>
