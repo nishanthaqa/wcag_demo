@@ -6,58 +6,83 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      padding: 2rem;
+      margin: 0;
+      padding: 0;
       background: #fff;
       color: #000;
+      line-height: 1.6;
     }
-    h1 {
-      margin-bottom: 1rem;
+
+    /* Header */
+    header {
+      background: url('contrast-banner.gif') center/cover no-repeat;
+      color: white;
+      padding: 4rem 2rem;
+      text-align: center;
     }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+      tabindex: 0;
+    }
+
     .section {
+      padding: 2rem;
       margin-bottom: 2.5rem;
     }
+
     .label {
       font-weight: bold;
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
     }
+
     .box, .example {
       padding: 1rem;
-      margin: 0.5rem 0 1rem 0;
+      margin: 0.5rem 0 1.5rem 0;
       border: 1px solid #ccc;
       background: #f9f9f9;
       min-width: 180px;
       text-align: center;
+      border-radius: 8px;
     }
+
     .fail {
       background-color: #ffe6e6;
       border-color: #ff9999;
     }
+
     .pass {
       background-color: #e6ffe6;
       border-color: #66cc66;
     }
+
     button {
       font-size: 16px;
       padding: 0.5rem 1rem;
       border: none;
+      border-radius: 5px;
       cursor: pointer;
     }
+
     .color-info {
       font-size: 0.85rem;
       color: #555;
       margin-top: 0.3rem;
     }
-    /* Focus ring example */
+
     .focus-example button:focus {
-      outline: 3px solid #004080; /* dark blue */
+      outline: 3px solid #004080;
       outline-offset: 2px;
     }
-    /* Fail focus outline */
+
     .fail-focus button:focus {
-      outline: 3px solid #ccc; /* light grey, poor contrast */
+      outline: 3px solid #ccc;
       outline-offset: 2px;
     }
-    /* Icon styles */
+
     .icon-button {
       font-size: 24px;
       line-height: 1;
@@ -68,24 +93,43 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      cursor: pointer;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #222;
+      color: #ddd;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    footer a {
+      color: #66ccff;
+      text-decoration: underline;
+    }
+
+    hr {
+      margin: 3rem 0;
     }
   </style>
 </head>
 <body>
-  <h1>WCAG 2.1 AA Color Contrast Demo</h1>
+
+  <header>
+    <h1 tabindex="0">WCAG 2.1 AA Color Contrast Demonstration</h1>
+  </header>
 
   <!-- Normal Text -->
   <div class="section">
     <div class="label">Normal Text (14px, contrast ratio must be ≥ 4.5:1)</div>
 
     <div class="box fail" style="color: #777; background-color: #fff;">
-      ❌ Gray text on white 
+      ❌ Gray text on white
       <div class="color-info">Foreground: #777 | Background: #fff</div>
     </div>
 
     <div class="box pass" style="color: #333; background-color: #fff;">
-      ✅ Dark gray text on white 
+      ✅ Dark gray text on white
       <div class="color-info">Foreground: #333 | Background: #fff</div>
     </div>
   </div>
@@ -95,117 +139,85 @@
     <div class="label">Large Text (≥ 24px or 18.66px bold, contrast must be ≥ 3:1)</div>
 
     <div class="box fail" style="font-size: 24px; color: #aaa; background-color: #fff;">
-      ❌ Light gray large text on white 
+      ❌ Light gray large text on white
       <div class="color-info">Foreground: #aaa | Background: #fff</div>
     </div>
 
     <div class="box pass" style="font-size: 24px; color: #444; background-color: #fff;">
-      ✅ Dark gray large text on white 
+      ✅ Dark gray large text on white
       <div class="color-info">Foreground: #444 | Background: #fff</div>
     </div>
   </div>
-
-
 
   <!-- Links -->
   <div class="section">
     <div class="label">Links</div>
 
     <div class="box fail" style="background-color: #fff;">
-      ❌ Link is hard to distinguish (low contrast and no underline):
-      <br />
+      ❌ Link is hard to distinguish (low contrast and no underline):<br />
       <a href="#" style="color: #888; text-decoration: none;">Example Link</a>
       <span style="color: #777;"> (Surrounding text)</span>
       <div class="color-info">Link: #888 | Background: #fff</div>
     </div>
-  
+
     <div class="box pass" style="background-color: #fff;">
-      ✅ Sufficient contrast and underlined:
-      <br />
+      ✅ Sufficient contrast and underlined:<br />
       <a href="#" style="color: #0645AD; text-decoration: underline;">Accessible Link</a>
       <div class="color-info">Link: #0645AD | Background: #fff</div>
     </div>
   </div>
 
-  <hr style="margin: 3rem 0;" />
+  <hr />
 
-  <h1>WCAG AA Contrast: Buttons & Non-Text Elements Details</h1>
-
-  <!-- 1. Button Text vs Background -->
   <div class="section">
+    <h2>WCAG AA Contrast: Buttons & Non-Text Elements</h2>
+
+    <!-- 1. Button Text vs Background -->
     <div class="label">1. Button Text vs Button Background (Contrast ≥ 4.5:1)</div>
-    
+
     <div class="example fail" tabindex="0">
-      <button style="background-color: #ddd; color: #eee;">
-        Fail: Low contrast text
-      </button>
-      <div class="color-info">
-        Text: #eee<br />
-        Background: #ddd
-      </div>
+      <button style="background-color: #ddd; color: #eee;">Fail: Low contrast text</button>
+      <div class="color-info">Text: #eee<br>Background: #ddd</div>
     </div>
 
     <div class="example pass" tabindex="0">
-      <button style="background-color: #007acc; color: #fff;">
-        Pass: High contrast text
-      </button>
-      <div class="color-info">
-        Text: #fff<br />
-        Background: #007acc
-      </div>
+      <button style="background-color: #007acc; color: #fff;">Pass: High contrast text</button>
+      <div class="color-info">Text: #fff<br>Background: #007acc</div>
     </div>
-  </div>
 
-  <!-- 2. Icon-only Button vs Background -->
-  <div class="section">
+    <!-- 2. Icon-only Button -->
     <div class="label">2. Icon-only Button vs Background (Contrast ≥ 3:1)</div>
-    
+
     <div class="example fail" tabindex="0">
-      <button class="icon-button" style="background-color: #eee; color: #ccc;" aria-label="Settings">
-        &#9881;
-      </button>
-      <div class="color-info">
-        Icon Color: #ccc<br />
-        Background: #eee
-      </div>
+      <button class="icon-button" style="background-color: #eee; color: #ccc;" aria-label="Settings">&#9881;</button>
+      <div class="color-info">Icon Color: #ccc<br>Background: #eee</div>
     </div>
 
     <div class="example pass" tabindex="0">
-      <button class="icon-button" style="background-color: #004080; color: #fff;" aria-label="Settings">
-        &#9881;
-      </button>
-      <div class="color-info">
-        Icon Color: #fff<br />
-        Background: #004080
-      </div>
-    </div>
-  </div>
-
-  <!-- 3. Focus Indicator Contrast -->
-  <div class="section">
-    <div class="label">3. Focus Indicator Contrast (Outline must have ≥ 3:1 contrast)</div>
-    
-    <div class="example fail-focus" tabindex="0" style="background-color: #fff;">
-      <button style="background-color: #007acc; color: #fff;">
-        Fail: Poor focus outline
-      </button>
-      <div class="color-info">
-        Outline: #ccc (light grey)<br />
-        Background: #fff
-      </div>
+      <button class="icon-button" style="background-color: #004080; color: #fff;" aria-label="Settings">&#9881;</button>
+      <div class="color-info">Icon Color: #fff<br>Background: #004080</div>
     </div>
 
-    <div class="example focus-example" tabindex="0" style="background-color: #fff;"/>
-      <button style="background-color: #007acc; color: #fff;">
-        Pass: Clear focus outline
-      </button>
-      <div class="color-info">
-        Outline: #004080 (dark blue)<br />
-        Background: #fff
-      </div>
+    <!-- 3. Focus Indicator -->
+    <div class="label">3. Focus Indicator Contrast (Outline ≥ 3:1)</div>
+
+    <div class="example fail-focus" tabindex="0">
+      <button style="background-color: #007acc; color: #fff;">Fail: Poor focus outline</button>
+      <div class="color-info">Outline: #ccc<br>Background: #fff</div>
+    </div>
+
+    <div class="example focus-example" tabindex="0">
+      <button style="background-color: #007acc; color: #fff;">Pass: Clear focus outline</button>
+      <div class="color-info">Outline: #004080<br>Background: #fff</div>
     </div>
 
     <p><small>Use keyboard (Tab) to test focus outlines.</small></p>
   </div>
+
+  <footer>
+    <p>Created for accessibility testing and WCAG 2.1 AA contrast demonstration.</p>
+    <p>Learn more about <a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank">WCAG 2.1 Guidelines</a></p>
+  </footer>
+
 </body>
 </html>
