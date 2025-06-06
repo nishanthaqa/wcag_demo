@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Interactive Accessibility Test Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      position: relative;
+    }
+
+    header img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+
+    header h1 {
+      position: absolute;
+      bottom: 10px;
+      left: 20px;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-size: 1.8rem;
+    }
+
+    main {
+      flex: 1;
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      text-align: center;
+    }
+
+    .low-contrast {
+      color: #ccc;
+      background-color: #fff;
+      padding: 1rem;
+      margin: 1rem 0;
+      border: 1px solid #eee;
+    }
+
+    form {
+      margin: 2rem 0;
+    }
+
+    input[type="text"] {
+      padding: 0.5rem;
+      width: 100%;
+      max-width: 300px;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    input[type="submit"],
+    button {
+      padding: 0.6rem 1.2rem;
+      background-color: #007acc;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 0.5rem;
+    }
+
+    a {
+      display: inline-block;
+      margin: 1rem 0;
+      color: #0066cc;
+      text-decoration: underline;
+    }
+
+    [role="button"] {
+      background-color: #28a745;
+      color: white;
+      padding: 0.5rem 1rem;
+      margin-top: 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .modal {
+      position: fixed;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -30%);
+      width: 90%;
+      max-width: 400px;
+      background: white;
+      border: 1px solid black;
+      padding: 1.5rem;
+      z-index: 1001;
+      box-shadow: 0px 0px 12px rgba(0,0,0,0.5);
+      border-radius: 8px;
+      text-align: left;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+    }
+
+    footer {
+      background-color: #f2f2f2;
+      padding: 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #555;
+      border-top: 1px solid #ddd;
+    }
+
+    hr {
+      margin: 2rem auto;
+      width: 60%;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="axeauto.jpg" alt="Decorative banner">
+    <h1>Interactive Accessibility Test Page</h1>
+  </header>
+
+  <main>
+    <h3>This is a subheading (missing h2)</h3>
+
+    <img src="axe.png" alt="Axe-core logo" style="max-width: 100%; height: auto; margin: 1rem 0;" />
+
+    <p class="low-contrast">This low-contrast text is hard to read.</p>
+
+    <form id="subscribeForm" aria-label="Subscribe Form">
+      <label for="email">Email:</label><br>
+      <input type="text" name="email" id="email"><br>
+      <input type="submit" value="Subscribe">
+    </form>
+
+    <a href="next.html">Click here</a>
+
+    <div role="button" tabindex="0" onclick="alert('Submitted!')">This is a custom button</div>
+
+    <hr>
+
+    <button onclick="toggleContent()">Toggle Extra Info</button>
+    <div id="extraInfo" class="hidden">
+      <p>This is some hidden content revealed by a button.</p>
+    </div>
+
+    <br><br>
+    <button onclick="openModal()">Open Modal</button>
+
+    <div id="modalOverlay" class="overlay hidden" onclick="closeModal()"></div>
+    <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <p id="modalTitle">This is a modal window. It can be closed by clicking outside.</p>
+      <button onclick="closeModal()">Close</button>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Accessibility Demo. Built to test with <a href="https://www.deque.com/axe/" target="_blank" rel="noopener noreferrer">axe-core</a>.
+  </footer>
+
+  <script>
+    function toggleContent() {
+      const info = document.getElementById('extraInfo');
+      info.classList.toggle('hidden');
+    }
+
+    function openModal() {
+      document.getElementById('modal').classList.remove('hidden');
+      document.getElementById('modalOverlay').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('modal').classList.add('hidden');
+      document.getElementById('modalOverlay').classList.add('hidden');
+    }
+  </script>
+
+</body>
+</html>

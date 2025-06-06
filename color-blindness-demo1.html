@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WCAG Color Blindness Demo</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #fff;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      position: relative;
+    }
+
+    header img {
+      width: 100%;
+      max-height: 250px;
+      object-fit: cover;
+      display: block;
+    }
+
+    header h1 {
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+    }
+
+    main {
+      flex: 1;
+      padding: 2rem;
+    }
+
+    h2 {
+      margin-top: 2rem;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 0.25rem;
+    }
+
+    .color-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .box {
+      width: 150px;
+      height: 100px;
+      padding: 1rem;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .legend {
+      margin-top: 1rem;
+      font-style: italic;
+    }
+
+    .contrast-warning {
+      color: #c00;
+      font-size: 0.95rem;
+      margin-top: 0.5rem;
+    }
+
+    footer {
+      background-color: #f2f2f2;
+      color: #444;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      border-top: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="contrast-banner.gif" alt="Abstract colorful shapes">
+    <h1>WCAG Color Blindness Accessibility Demo</h1>
+  </header>
+
+  <main>
+    <p>This demo shows color pairs and their potential visibility issues for users with color blindness. Use high contrast and secondary visual cues for accessibility.</p>
+
+    <h2>Color Combinations (Normal Vision)</h2>
+    <div class="color-box">
+      <div class="box" style="background-color: #ff0000;">Red</div>
+      <div class="box" style="background-color: #00ff00;">Green</div>
+      <div class="box" style="background-color: #0000ff;">Blue</div>
+      <div class="box" style="background-color: #ffff00; color: #000;">Yellow</div>
+      <div class="box" style="background-color: #ff00ff;">Magenta</div>
+      <div class="box" style="background-color: #00ffff; color: #000;">Cyan</div>
+    </div>
+
+    <h2>Problematic Combinations</h2>
+    <p>These combinations may be hard to distinguish for users with red-green color blindness (protanopia or deuteranopia):</p>
+    <div class="color-box">
+      <div class="box" style="background-color: #ff0000;">Red</div>
+      <div class="box" style="background-color: #008000;">Green</div>
+      <div class="box" style="background-color: #cc0000;">Dark Red</div>
+      <div class="box" style="background-color: #999900;">Olive</div>
+    </div>
+    <p class="contrast-warning">⚠️ Avoid using color alone to convey meaning. Add labels, icons, or patterns.</p>
+
+    <h2>Good Practice</h2>
+    <ul>
+      <li>✅ Use sufficient contrast (WCAG AA: 4.5:1 for normal text).</li>
+      <li>✅ Use color <strong>and</strong> shape, icons, or text for differentiation.</li>
+      <li>✅ Use accessibility tools to simulate color blindness (e.g., Chrome DevTools or Coblis).</li>
+    </ul>
+
+    <h2>Simulating Color Blindness</h2>
+    <p>You can test this page using <strong>Chrome's DevTools → Rendering → Emulate vision deficiencies</strong> (like Protanopia, Deuteranopia).</p>
+
+    <div class="legend">
+      This is a static simulation. Actual appearance for color-blind users will vary.
+    </div>
+  </main>
+
+  <footer>
+    © 2025 Color Accessibility Demo | Designed for WCAG 2.1 AA Compliance
+  </footer>
+
+</body>
+</html>
